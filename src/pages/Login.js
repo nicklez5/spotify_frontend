@@ -1,14 +1,15 @@
 import React from "react";
 import axios from "axios";
 import { setAuthToken } from "../helpers/setAuthToken"
-
+import UserService from "../services/UserService";
 function Login() {
 
-  const handleSubmit = (email, password) => {
+  const handleSubmit = (username, password) => {
+
     //reqres registered sample user
     const loginPayload = {
-      username: 'jacksonlu123',
-      password: 'jacksonlu'
+      username: "jesusman22",
+      password: "jacksonlu"
     }
 
     axios.post("http://localhost:8080/login", loginPayload)
