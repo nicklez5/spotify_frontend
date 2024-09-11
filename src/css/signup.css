@@ -32,7 +32,7 @@
 }
 .addUser{
   position: relative;
-  top: 120px;
+  top: 15px;
 }
 .addUserForm .inputGroup {
     width: 100%;
@@ -81,12 +81,12 @@ li a:hover {
   
 .addUserForm .inputGroup input {
     margin-top: 5px;
-    padding: 10px;
+    width: 100%;
 }
-  
+
 .inputGroup button {
     margin-top: 10px;
-
+    
 }
 .login {
     margin-top: 30px;
@@ -151,8 +151,4 @@ span{
   color: red;
   text-align: center;
   padding-top: 10px;
-}
-select{
-  padding: 10px;
-  text-align: center;
 }

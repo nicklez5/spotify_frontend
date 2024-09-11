@@ -1,7 +1,9 @@
 
 .loginUser{
     background-color: white;
+    top: 125px;
     width: 25%;
+    height:25%;
     margin: 50px auto;
     /* margin in top and bottom will be 50px  */
     /* left and right auto  */
@@ -10,66 +12,73 @@
     box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.065);
     border-color: black;
     border-style:initial;
-    border-radius: 70px;
-    background-color: rgba(9, 146, 77, 0.982);
+    border-radius: 20px;
+    background-color: rgb(17, 233, 222);
     line-height:50%;
 }
-.centered-header{
-    text-align: center;
-    width: 60%;             /* Set the desired width */ 
-    margin: 0 auto;
-    font-size: 40px;        /* Center the element horizontally */ 
-    font-family:Monospace;
-    color: rgb(52, 235, 134);
-    position: relative;
-    top: 40px;
-  }
+
 .loginUser .inputGroup{
     width: 100%;
     position: relative;
-    
+    top: 15px;
 }
-.inputGroup label{
-    font-family:'Times New Roman', Times, serif;
-    margin: 10px;
-   
-}
-.LoginForm{
-    position: relative;
-    top: 5px;
-}
-.loginUser{
-    position: relative;
-    top: 120px;
-}
-.LoginForm .inputGroup {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding-bottom:20px;
-    
-}
+
 .go_back{
     position: absolute;
-    color: rgb(3, 252, 140);
-    right: 210px;
-    font-size: 15px;
-    top: 300px;
-}
-.LoginForm .inputGroup label {
-
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    right: 175px;
     
 }
-.LoginForm .inputGroup input{
-    margin-top: 5px;
-    padding: 10px;
-    border-radius: 10px;
-}
-.inputGroup button{
+
+p{
+    text-align: center;
     margin-top: 10px;
+    border-width: 10px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    padding-right: 17px;
 }
-.loginUser label{
-  padding: 5px;
-  text-align: center
+
+#email2{
+    position: relative;
+    left: 45px;
+    margin-bottom: 10px;
+    width: 60%
+}
+#password{
+    position: relative;
+    left: 17px;
+    width: 62.5%;
+    height: 17%;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+button{
+    position: relative;
+    bottom: 5px;
+    left: 135px;
+    padding: 10px;
+    background-color:aqua;
+    border-radius: 10px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-spacing: 10px;
+    border: none;
+    text-align: justify;
+}
+button:hover{
+    background-color: rgb(155, 6, 242)
+}
+input[type=password] {
+    width:50%;
+
+    box-sizing: border-box;  
+}
+input[type=text] {
+    width:50%;
+
+    box-sizing: border-box;  
+}
+.go_back{
+   color: red;
+   position: relative;
+   left: 525px;
+   bottom: 75px;
 }

@@ -1,29 +1,29 @@
 import axios from 'axios'
 
-const spotify_url = "http://localhost:8080/"
+const spotify_url = "http://localhost:8000/"
 const loginPayload = {
     username: "jesusman22",
     password: "jacksonlu"
   }
 class UserService{
-    register(username1,password1,email1,role1){
-        return axios.post(spotify_url + "register", {
-            username: username1,
-            password: password1,
+    register(email1,fullName1,password1){
+        return axios.post(spotify_url + "users/signup", {
             email: email1,
-            role: role1
+            password: password1,
+            fullName: fullName1,
         },{headers: {
             'Content-Type': 'application/json',
             'Authorization': 'No Auth'
         },
     })
 }
-    login(username1,password1){
-        return axios.post(spotify_url + "login",{
-            username: username1,
+    login(email1,password1){
+        return axios.post(spotify_url + "users/login",{
+            email: email1,
             password: password1
         },{headers: {
             'Content-Type': 'application/json',
+            'Authorization': 'No Auth'
             
         },
     })

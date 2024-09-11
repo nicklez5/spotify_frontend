@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 
 const baseUrl = "http://localhost:8080/"
 
-function HomePage2(){
+function Dashboard(){
     return (
         <div>
             welcome
         </div>
     )
 }
-export default HomePage2;
+export default Dashboard;
