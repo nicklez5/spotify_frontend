@@ -1,5 +1,5 @@
 import "./../css/header.css";
-import Signup from "./Signup";
+import Signup from "./Signup"
 function HomePage() {
   return (
         
@@ -11,10 +11,9 @@ function HomePage() {
             <li style={{marginRight: 10}}><a href="#about">Settings</a></li>
         </ul>
         <h1>Welcome to Spotify</h1>
-        <Signup />
         <div class="multi-bg-example">
             <header class="centered-header">
-                    
+                Hello localStorage.getItem(username)
             </header>
         </div>
     </div>

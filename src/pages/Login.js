@@ -1,49 +1,84 @@
-import React from "react";
-import axios from "axios";
-import { setAuthToken } from "../helpers/setAuthToken"
-import UserService from "../services/UserService";
+import '../css/login.css';
+import { useState } from 'react';
+import { Link , redirect} from 'react-router-dom'
+import UserService from '../services/UserService';
+import { useForm } from 'react-hook-form';
+import { setAuthToken } from '../helpers/setAuthToken';
+
 function Login() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const [status, setStatus] = useState('');
+  const onSubmit = (data) => {
+      console.log(data)
+      setUsername(data.username);
+      setPassword(data.password);
+      UserService.login(username,password)
+        .then((response) => {
+            console.log(response)
+            const token = response.data.token;
+            localStorage.setItem('token',token);
+            localStorage.setItem('username',username);
+            setAuthToken(token);
+            setStatus({type: 'success'});
+            window.location.href = '/home'
+          })
+          .catch((err) => {
+            setStatus({type: 'error',err});
+            console.log(err.response);
+          })
 
-  const handleSubmit = (username, password) => {
-
-    //reqres registered sample user
-    const loginPayload = {
-      username: "jesusman22",
-      password: "jacksonlu"
-    }
-
-    axios.post("http://localhost:8080/login", loginPayload)
-      .then(response => {
-        //get token from response
-        const token = response.data.token;
-
-        //set JWT token to local
-        localStorage.setItem("token", token);
-
-        //set token to axios common header
-        setAuthToken(token);
-
-        //redirect user to home page
-        window.location.href = '/'
-
-      })
-      .catch(err => console.log(err));
   };
-
   return (
-    <form
-      onSubmit={(event) => {
-        event.preventDefault()
-        const [username, password] = event.target.children;
-        handleSubmit(username, password);
-      }}
-    >
-      <label for="username">Username</label><br />
-      <input type="username" id="username" name="username"/><br />
-      <label for="password">Password</label><br />
-      <input type="password" id="password" name="password"/><br></br>
-      <input type="submit" value="Submit" />
-    </form>
-  );
-}
-export default Login
+     
+        <div className="outside">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#news">Library</a></li>
+            <li><a href="#contact">Playlists</a></li>
+            <li style={{marginRight: 10}}><a href="#about">Settings</a></li>
+        </ul>
+        <div>
+            <header className="centered-header">
+                Welcome to Spotify
+            </header>
+        </div>
+        <div className="loginUser">
+          <form className="LoginForm" onSubmit={handleSubmit(onSubmit)}>
+            <div className="inputGroup">
+          
+                <label htmlFor="username">Username:</label>
+                <input
+                  type="text"
+                  id="username"
+                  {...register('username', { required: true })}
+                  placeholder="Enter username"
+                />
+                {errors.username && <span>Username is mandatory</span>}
+                <label htmlFor="password">Password</label>
+                <input
+                  type="password"
+                  id="password"
+                  {...register('password', { required: true })}
+                  placeholder="Enter password"
+                />
+                {errors.password && <span>Password is required</span>}
+                <input type="submit" id="submit" />
+                {status?.type === 'success' && (
+                  <p className="text-success">Successfully logged in</p>
+                )}
+                {status?.type === 'error' && <p>Failed login</p>}
+            </div>
+          </form>
+          <Link className="go_back"to="/">Go back</Link>
+       </div>
+      </div>
+        
+)}
+
+export default Login;
