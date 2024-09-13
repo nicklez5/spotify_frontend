@@ -20,7 +20,7 @@
   text-align: center;
   width: 60%;             /* Set the desired width */ 
   margin: 0 auto;
-  font-size: 40px;        /* Center the element horizontally */ 
+  font-size: 30px;        /* Center the element horizontally */ 
   font-family:Monospace;
   color: rgb(52, 235, 134);
   position: relative;
@@ -34,11 +34,36 @@
   position: relative;
   top: 15px;
 }
-.addUserForm .inputGroup {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    
+h2{
+  text-align: center;
+  font-size: 18px;
+  font-family:'Courier New', Courier, monospace
+}
+#email{
+  margin-left: 20px;
+  height: 10px;
+  width: 76%;
+}
+#fullName{
+  height: 44%;
+  width: 76%;
+  margin-left: 16px;
+  margin-top: 10px;
+}
+#password{
+  height: 15%;
+  width:  67.5%;
+  margin-right: 30px;
+
+}
+
+.button1{
+  width: 25%;
+  margin-top: 25px;
+  margin-left: 35%;
+  background-color:#48ff00f9;
+  border: none;
+  border-radius: 15px;
 }
 ul{
   list-style-type: none;
@@ -76,44 +101,10 @@ li a:hover {
     padding-top: 10px;
     padding-bottom: 10px;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-   
-}
-  
-.addUserForm .inputGroup input {
-    margin-top: 5px;
-    width: 100%;
+    padding-right: 10px;
 }
 
-.inputGroup button {
-    margin-top: 10px;
-    
-}
-.login {
-    margin-top: 30px;
-    text-align: center;
-}
-  
-.login .btn.btn-primary {
-    width: 50%;
-    
-  }
-.addUser label{
-  padding: 5px;
-  text-align: center;
-}
-.addUser h3 {
-    text-align: center;
-    font-weight: bold;
-    font-family:Andale Mono, monospace;
-    text-transform: none;
-    text-shadow: 1px 1px 2px rgba(252, 252, 252, 0.7);
-    color: black;
-    line-height: 18px;
-    width: 120px;
-    position: absolute;
-    right: 15px;
-    border: solid red 2px;
-}
+
 .outside{
   width: 100%;
   background-image: url(../../images/top_2.jpg);
@@ -123,32 +114,4 @@ li a:hover {
   height: 100vh;
   overflow: hidden;
 }
-.addUserForm button{
-  background-color: rgb(194, 212, 191);
-  padding: 10px;
-  border-radius: 10px;
-  width: 150px;
-  position: relative;
-  left: 100px;
-  
-  cursor: pointer;
-}
-.login p{
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 10px;
-}
-.btn.btn-primary{
-  font-size: 13px;
-}
-#submit{
-  margin-top: 30px;
-  background-color: rgb(161,234,251);
-}
-::placeholder {
-  text-align: center; 
-}
-span{
-  color: red;
-  text-align: center;
-  padding-top: 10px;
-}
+

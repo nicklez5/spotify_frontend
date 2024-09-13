@@ -10,18 +10,18 @@ function Signup(){
     const [fullName, setFullName] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('')
-    const onSubmit = (data) => {
-        console.log(data)
-        UserService.register(data.username,data.password,data.email,data.role)
-        .then(
-            response => {
-                console.log(response)
-                setStatus({type: 'success'});
-            })   
-        .catch((error) => {
-            setStatus({ type: 'error', error})
-        })
-    };
+
+   async function handleSignup(e){
+        e.preventDefault();
+        try{
+            UserService.register(email,fullName,password).then((response) => {
+                console.log(response);
+                setStatus('success')
+            })
+        }catch(error){
+            setStatus('error')
+        }
+   }
     
     return (
         
@@ -30,7 +30,7 @@ function Signup(){
                         <li><a href="#home">Home</a></li>
                         <li><a href="#news">Library</a></li>
                         <li><a href="#contact">Playlists</a></li>
-                        <li style={{marginRight: 10}}><a href="#about">Settings</a></li>
+                        <li><a href="#about">Settings</a></li>
                     </ul>
                     <div>
                         <header className="centered-header">
@@ -38,28 +38,29 @@ function Signup(){
                         </header>
                     </div>
                     <div className="addUser">
-                    
                         <form className="addUserForm" onSubmit={handleSignup} >
                             <div className="inputGroup">
-                                <label htmlFor="email">Email:</label>
-                                    
-                                    <input type="text" id="email"  placeholder="Enter your email"/>
-                                    
-                                   
-                                    <label htmlFor="FullName">Name:</label>
-                                   
-                                    
-                                    
-                                    <label htmlFor="password" >Password:</label>
-                                   
-                                    <input type={"submit"} id="submit" />
-                                    {status?.type === 'success' && (<p className="text-success">Succesfully signed up</p>)}
-                                    {status?.type === 'error' && <p>user already exists</p>}
+                            <h2>Sign up</h2>
+                                <div className = "mb-3">
+                                    <label htmlFor="email" className="form-label">Email:</label>   
+                                    <input onChange={e => {setEmail(e.target.value)}} type="email" id="email" className="form-control" placeholder="Enter your email"/>
+                                </div>
+                                <div className = "mb-3">
+                                    <label htmlFor="fullName" className="form-label">Name: </label>
+                                    <input onChange={e => {setFullName(e.target.value)}} type="text" className="form-control" id="fullName" placeholder="Enter your name"/>
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="password" className="form-label">Password: </label>
+                                    <input onChange={e => {setPassword(e.target.value)}} type="password" className="form-control" id="password" placeholder="Enter your password"/>
+                                </div>
+                                <button type="submit" className="button1">Submit</button>
+                                {status === 'success' && (<p className="text-success">Succesfully signed up</p>)}
+                                {status === 'error' && <p>user already exists</p>}
                             </div>
                         </form>
                         <div className="login">
                             <p>Already have an account ? </p>
-                            <Link to="/login" type="submit" className="btn btn-primary">
+                            <Link to="/login" type="submit" id="login_button">
                                 Login
                             </Link>
                         </div>

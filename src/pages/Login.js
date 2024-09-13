@@ -5,20 +5,26 @@ import UserService from '../services/UserService';
 import { useForm } from 'react-hook-form';
 import { setAuthToken } from '../helpers/setAuthToken'
 import Swal from "sweetalert2"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { jwtDecode} from 'jwt-decode'
 export default function Login() {
   
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   async function handleLogin(e){
     e.preventDefault()
-  
     UserService.login(email,password)
     .then(
       response => {
+
           console.log(response)
+          
           const token = response.data.token;
+          const user = jwtDecode(token)
           localStorage.setItem('token',token)
-          setAuthToken(token)
+          setAuthToken(token);
+          
+          localStorage.setItem('email', user.sub);
           window.location.href = '/dashboard'
          
       }).catch((error) => {
@@ -40,7 +46,7 @@ export default function Login() {
             <li><a href="#home">Home</a></li>
             <li><a href="#news">Library</a></li>
             <li><a href="#contact">Playlists</a></li>
-            <li style={{marginRight: 10}}><a href="#about">Settings</a></li>
+            <li><a href="#about">Settings</a></li>
         </ul>
         <div>
             <header className="centered-header">
@@ -57,7 +63,7 @@ export default function Login() {
                     htmlFor="email"
                     type="email"
                     onChange={e => {setEmail(e.target.value)}}
-                   
+                    placeholder="Enter email"
                     id="email2"/>
                 </div>
                 <div className="mb-3">
@@ -66,12 +72,16 @@ export default function Login() {
                     htmlFor="password"
                     onChange={e => {setPassword(e.target.value)}} 
                     type="password" 
-                    id="password" />
+                    id="password2" 
+                    placeholder="Enter password"
+                    />
                 </div>
-                <button type="submit" className="btn btn-primary">Log in</button>
+                <button type="submit" className="button2">Log in</button>
           </div>
         </form>
-          
+        
+        
+     
         <Link className="go_back"to="/">Go back</Link>
         </div>
        

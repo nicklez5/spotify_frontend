@@ -1,9 +1,9 @@
 
 .loginUser{
     background-color: white;
-    top: 125px;
+    bottom: 145px;
     width: 25%;
-    height:25%;
+    height:19%;
     margin: 50px auto;
     /* margin in top and bottom will be 50px  */
     /* left and right auto  */
@@ -12,14 +12,15 @@
     box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.065);
     border-color: black;
     border-style:initial;
-    border-radius: 20px;
-    background-color: rgb(17, 233, 222);
+    border-radius: 70px;
+    background-color:  rgba(9, 146, 77, 0.982);
     line-height:50%;
 }
 
 .loginUser .inputGroup{
     width: 100%;
     position: relative;
+    
     top: 15px;
 }
 
@@ -30,11 +31,14 @@
 }
 
 p{
+    font-size: 16px;
+    font-weight: bolder;
     text-align: center;
     margin-top: 10px;
     border-width: 10px;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding-right: 17px;
+    padding-bottom: 10px;
 }
 
 #email2{
@@ -43,42 +47,41 @@ p{
     margin-bottom: 10px;
     width: 60%
 }
-#password{
-    position: relative;
-    left: 17px;
-    width: 62.5%;
-    height: 17%;
-    margin: 10px 0;
-    box-sizing: border-box;
-}
-button{
-    position: relative;
-    bottom: 5px;
-    left: 135px;
-    padding: 10px;
-    background-color:aqua;
-    border-radius: 10px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border-spacing: 10px;
-    border: none;
-    text-align: justify;
-}
+
+
 button:hover{
-    background-color: rgb(155, 6, 242)
+    background-color: rgb(242, 152, 6)
 }
-input[type=password] {
-    width:50%;
-
-    box-sizing: border-box;  
+#login_button{
+    color: black;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding-right: 10px;
 }
-input[type=text] {
+input[type=text],input[type=email] {
     width:50%;
-
     box-sizing: border-box;  
+    text-align: justify;
+    
+}
+#password2{
+    margin-left: 15px;
+    width: 60%;
 }
 .go_back{
-   color: red;
-   position: relative;
-   left: 525px;
-   bottom: 75px;
+   color: rgb(246, 255, 0);
+   position: absolute;
+   left: 55px;
+   bottom: 90px;
+   
+}
+.button2{
+    display: inline-block;
+    position: absolute;
+    top: 105px;
+    left: 42.5%;
+    padding: 5px;
+    background-color: #48ff00f9;
+    border: none;
+    border-radius: 10px;
+    padding: 8px;
 }

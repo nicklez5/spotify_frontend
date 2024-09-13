@@ -26,7 +26,7 @@ ul {
     background-color: url(../../images/background2.jpg);
     display: flex;
     flex-direction: row;
-    gap: 350px;
+    gap: 150px;
     
 }
   

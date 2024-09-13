@@ -1,43 +1,46 @@
 import axios from 'axios'
 
-const spotify_url = "http://localhost:8080/"
+const spotify_url = "http://localhost:8000/song"
 
 class SongService{
-    info(id, username){
+    info(id, email){
         const form = new FormData();
-        form.append('username',username)
-        return axios.get(spotify_url + id + "/info", form, {headers : {'Content-Type' : 'multipart/form-data'}
+        form.append('email',email)
+        return axios.get(spotify_url  + "/info/" + id , form, {headers : {'Content-Type' : 'multipart/form-data'}
         }) 
     }
-    upload(username,title,artist, file){
+    upload(email,title,artist, file){
         const form = new FormData();
-        form.append('username',username)
+        form.append('email',email)
         form.append('title',title)
         form.append('artist',artist)
         form.append('file',file)
-        return axios.post(spotify_url + "upload", form, {headers: {'Content-Type' : 'multipart/form-data'}
+        return axios.post(spotify_url + "/upload", form, {headers: {'Content-Type' : 'multipart/form-data'}
         })
     }
-    edit(song_id, title, artist, file, username){
+    edit(song_id, title, artist, file, email){
         const form = new FormData();
         form.append('title',title)
         form.append('artist',artist)
         form.append('file',file)
-        form.append('username',username)
-        return axios.put(spotify_url + "editSong/" + song_id, form, {headers: {'Content-Type': 'multipart/form-data'}
+        form.append('email',email)
+        return axios.put(spotify_url + "/editSong/" + song_id, form, {headers: {'Content-Type': 'multipart/form-data'}
         })
     }
-    delete(song_id, username){
+    delete(song_id, email){
         const form = new FormData();
-        form.append('username',username)
-        return axios.delete(spotify_url + "deleteSong/" + song_id, form, {headers: {'Content-Type' : 'multipart/form-data'}
+        form.append('email',email)
+        return axios.delete(spotify_url + "/deleteSong/" + song_id, form, {headers: {'Content-Type' : 'multipart/form-data'}
         })
     }
-    allSongs(username){
+    allSongs(){
+        return axios.get(spotify_url + "/all", {headers : {'Content-Type' : 'multipart/form-data'}
+        })
+    }
+    download(filename){
         const form = new FormData()
-        form.append('username',username)
-        return axios.get(spotify_url + "all",form, {headers : {'Content-Type' : 'multipart/form-data'}
-        })
+        form.append('filename',filename)
+        return axios.get(spotify_url + "/downloadFile", form, {headers: {'Content-Type': 'multipart/form-data'}})
     }
     
 }

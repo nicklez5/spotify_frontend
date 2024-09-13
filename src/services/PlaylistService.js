@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import axios from 'axios'
 
 const spotify_url = "http://localhost:8080/"
@@ -59,3 +60,4 @@ class PlaylistService{
         return axios.get(spotify_url + "getPlaylist", form, {headers: {'Content-Type': 'multipart/form-data'}})
     }
 }
+export default new PlaylistService()
